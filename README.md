@@ -30,7 +30,7 @@ The SecureByte Ambassador Program empowers university students to become cyberse
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/securbyte-ambassador.git
+https://yamin-401533.github.io/SecureByte-Ambassador-Program/
 ```
 
 2. Open `index.html` in your browser

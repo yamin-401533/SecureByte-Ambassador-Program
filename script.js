@@ -142,3 +142,71 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('navbar-toggle').addEventListener('click', function() {
     document.getElementById('navbar-menu').classList.toggle('active');
 });
+
+// Enhanced Interactions
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll animation
+    const scrollElements = document.querySelectorAll('.program-content, .video-wrapper, .content-box');
+    
+    const elementInView = (el, percentageScroll = 100) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <= 
+            ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll/100))
+        );
+    };
+    
+    const displayScrollElement = (element) => {
+        element.classList.add('scrolled');
+    };
+    
+    const hideScrollElement = (element) => {
+        element.classList.remove('scrolled');
+    };
+    
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 100)) {
+                displayScrollElement(el);
+            } else {
+                hideScrollElement(el);
+            }
+        });
+    };
+    
+    // Throttle function for scroll performance
+    let throttleTimer;
+    const throttle = (callback, time) => {
+        if (throttleTimer) return;
+        
+        throttleTimer = true;
+        setTimeout(() => {
+            callback();
+            throttleTimer = false;
+        }, time);
+    };
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', () => {
+        throttle(handleScrollAnimation, 250);
+    });
+    
+    // Interactive hover effects
+    const videoContainer = document.querySelector('.video-wrapper');
+    videoContainer.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = videoContainer.getBoundingClientRect();
+        const x = (e.clientX - left) / width;
+        const y = (e.clientY - top) / height;
+        
+        videoContainer.style.transform = `
+            perspective(1000px)
+            rotateY(${x * 5}deg)
+            rotateX(${y * -5}deg)
+            translateY(-10px)
+        `;
+    });
+    
+    videoContainer.addEventListener('mouseleave', () => {
+        videoContainer.style.transform = 'translateY(0)';
+    });
+});

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (timeLeft <= 0) {
             countdown.innerHTML = `<div class="countdown-item"><h3>Program Closed</h3></div>`;
+            clearInterval(timerInterval);
             return;
         }
 
@@ -37,8 +38,49 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    setInterval(updateCountdown, 1000);
+    const timerInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // Enhanced FAQ Functionality
+    const faqItems = document.querySelectorAll('.faq');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.question');
+        const answer = item.querySelector('.answer');
+        
+        // Add icon to questions
+        const icon = document.createElement('span');
+        icon.innerHTML = '&#x25BE;'; // Unicode down arrow
+        icon.className = 'faq-icon';
+        question.appendChild(icon);
+        
+        // Set initial state
+        answer.style.maxHeight = '0px';
+        answer.style.transition = 'max-height 0.3s ease-out';
+        answer.style.overflow = 'hidden';
+        
+        question.addEventListener('click', () => {
+            // Close all other answers first
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherAnswer = otherItem.querySelector('.answer');
+                    const otherQuestion = otherItem.querySelector('.question');
+                    otherAnswer.style.maxHeight = '0px';
+                    otherQuestion.classList.remove('active');
+                }
+            });
+            
+            // Toggle current answer
+            const isOpen = question.classList.contains('active');
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                question.classList.add('active');
+            } else {
+                answer.style.maxHeight = '0px';
+                question.classList.remove('active');
+            }
+        });
+    });
 
     // Mobile Menu Toggle
     const menuBtn = document.querySelector('.menu-btn');
@@ -96,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createStars();
 });
 
+// Navbar Toggle
 document.getElementById('navbar-toggle').addEventListener('click', function() {
     document.getElementById('navbar-menu').classList.toggle('active');
 });

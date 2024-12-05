@@ -260,52 +260,77 @@ section h2::after {
     }
 }
 
-/* Modern FAQ Section */
+/* Updated CSS */
 #faq {
-    padding: 2rem 1rem;
-    background-color: var(--background);
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 #faq h2 {
     text-align: center;
     color: var(--primary);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-size: 2rem;
+    font-weight: bold;
 }
 
 .faq {
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid var(--primary);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(207, 135, 255, 0.2);
+    border-radius: 8px;
+    background-color: var(--light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .faq .question {
-    background-color: var(--light);
-    color: #cf87ff;
+    position: relative;
     padding: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-bottom: 1px solid var(--primary);
+    color: rgb(197, 125, 255);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid;
+    border-radius: 8px;
     animation: borderAnimation 3s infinite;
 }
 
 .faq .question:hover {
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: rgba(207, 135, 255, 0.05);
+}
+
+.faq .question.active {
+    color: #cf87ff;
+}
+
+.faq-icon {
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+    color: #cf87ff;
+}
+
+.question.active .faq-icon {
+    transform: rotate(180deg);
 }
 
 .faq .answer {
-    background-color: var(--white);
-    color: var(--dark);
-    padding: 1.5rem;
-    display: none;
-    border-bottom: 1px solid var(--primary);
+    padding: 0 1.5rem;
+    color: rgb(235, 192, 255);
+    line-height: 1.6;
+    font-size: 0.99rem;
 }
 
-.faq .question.active + .answer {
-    display: block;
+/* Add padding to the content inside answer for smooth animation */
+.faq .answer > div {
+    padding: 1.5rem 0;
 }
 
 /* Enhanced Registration Form */

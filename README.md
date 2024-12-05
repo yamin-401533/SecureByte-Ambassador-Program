@@ -13,7 +13,8 @@ The SecureByte Ambassador Program empowers university students to become cyberse
 - Mobile-friendly navigation
 ![image](https://github.com/user-attachments/assets/f9a5e835-d303-4cc8-bdc7-ce9ed4a2640b)
 
-![image](https://github.com/user-attachments/assets/7f129cdc-7650-4f37-ad64-515de6533c7a)
+![image](https://github.com/user-attachments/assets/fe4a3e0a-3559-479f-aadd-f490d3ae5a2d)
+
 
 ![image](https://github.com/user-attachments/assets/9462ec60-e0ca-4930-852f-f967b0a81faf)
 

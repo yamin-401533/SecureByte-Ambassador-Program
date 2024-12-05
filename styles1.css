@@ -47,6 +47,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -45px;
 }
 
 nav .logo h1 {
@@ -93,7 +94,7 @@ header {
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     padding: 4rem 0;
-    margin-top: 0px;
+    margin-top: 45px;
     text-align: center;
 }
 
@@ -107,21 +108,51 @@ header h1 {
 
 #search {
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--primary);
     padding: 1rem;
     width: 50%;
     border-radius: 30px;
     color: #fff;
     font-size: 1rem;
     transition: all 0.3s ease;
+    border: 1px solid;
+    animation: borderAnimation 3s infinite;
+    box-shadow: 0 2px 4px rgba(207, 9, 191, 0.1);
 }
 
 #search:focus {
     outline: none;
     box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
     background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-light);
 }
 
+@keyframes borderAnimation {
+    0%, 100% {
+        border-color: #8b0097;
+    }
+    12.5% {
+        border-color: #ff18ff;
+    }
+    25% {
+        border-color: #ae00ff;
+    }
+    37.5% {
+        border-color: #9900ff;
+    }
+    50% {
+        border-color: #87008b;
+    }
+    62.5% {
+        border-color: #ff007f;
+    }
+    75% {
+        border-color: #ff00ff;
+    }
+    87.5% {
+        border-color: #ff0080;
+    }
+}
 /* Ambassador Cards */
 #ambassador-list {
     display: grid;
@@ -146,6 +177,8 @@ header h1 {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: borderAnimation 3s infinite;
 }
 
 .ambassador-card::before {
@@ -173,6 +206,7 @@ header h1 {
     padding: 3px;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
+    animation: borderAnimation 3s infinite;
 }
 
 .ambassador-card img:hover {
@@ -183,14 +217,12 @@ header h1 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: var(--primary-light);
-    text-align: center;
 }
 
 .ambassador-card .institute {
     font-size: 1.1rem;
     color: #ccc;
     margin-bottom: 1rem;
-    text-align: center;
 }
 
 .ambassador-card .rating {
@@ -211,112 +243,63 @@ header h1 {
     color: #fff;
     margin-bottom: 1rem;
     font-weight: 500;
-    text-align: center;
 }
 
 .ambassador-card .about {
     color: #aaa;
     line-height: 1.6;
-    text-align: center;
-}/* Ambassador Cards */
-#ambassador-list {
-    display: grid;
-    justify-content: space-around;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    padding: 3rem;
-    margin-top: 2rem;
 }
 
-.ambassador-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Border Animation */
+@keyframes borderAnimation {
+    0%, 100% {
+        border-color: #8b0097;
+    }
+    12.5% {
+        border-color: #ff18ff;
+    }
+    25% {
+        border-color: #141600;
+    }
+    37.5% {
+        border-color: #9900ff;
+    }
+    50% {
+        border-color: #87008b;
+    }
+    62.5% {
+        border-color: #ff007f;
+    }
+    75% {
+        border-color: #ff00ff;
+    }
+    87.5% {
+        border-color: #ff0080;
+    }
 }
 
-.ambassador-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(138, 43, 226, 0.1));
-    z-index: -1;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-.ambassador-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3);
-}
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
 
-.ambassador-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary-light);
-    padding: 3px;
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
-}
+    .ambassador-card {
+        padding: 1rem;
+    }
 
-.ambassador-card img:hover {
-    transform: scale(1.1);
-}
-
-.ambassador-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--primary-light);
-    text-align: center;
-}
-
-.ambassador-card .institute {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.ambassador-card .rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.ambassador-card .rating span {
-    color: var(--primary-light);
-    font-weight: 600;
-}
-
-.ambassador-card .current-position {
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    text-align: center;
-}
-
-.ambassador-card .about {
-    color: #aaa;
-    line-height: 1.6;
-    text-align: center;
-}
-
-/* Animations */
-@keyframes aurora {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    .ambassador-card img {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 /* Responsive Design */
